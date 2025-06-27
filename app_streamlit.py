@@ -1,13 +1,15 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objs as go
-import requests
 
 st.set_page_config(page_title="Visualizador Minero 3D", layout="wide")
 st.title("🔍 Visualizador 3D desde Google Sheets (CSV)")
 
-url_csv = st.text_input("📎 Pega aquí la URL pública en formato CSV de Google Sheets", 
-                        value="https://docs.google.com/spreadsheets/d/1CeNxt3T8Y0ktm8PrvfnbCtAkR1H2LCY4/export?format=csv")
+# URL pública de Google Sheets en formato CSV (modifica si quieres otra)
+url_csv = st.text_input(
+    "📎 Pega aquí la URL pública en formato CSV de Google Sheets",
+    value="https://docs.google.com/spreadsheets/d/1CeNxt3T8Y0ktm8PrvfnbCtAkR1H2LCY4/export?format=csv"
+)
 
 if url_csv:
     try:
@@ -18,7 +20,6 @@ if url_csv:
             st.stop()
         df = df[columnas].dropna()
         df["Clasificación"] = df["Clasificación"].astype(str)
-
         st.success("✅ Archivo cargado con éxito.")
     except Exception as e:
         st.error(f"❌ Error al cargar CSV: {e}")
