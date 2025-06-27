@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objs as go
 
 st.set_page_config(page_title="Visualizador Minero 3D", layout="wide")
-st.title("🔍 Visualizador 3D desde Google Sheets (CSV)")
+st.title("🔍 Visualizador 3D desde Google Sheets (CSV) - Carga directa")
 
 # URL pública fija del Google Sheets exportado a CSV
 url_csv = "https://docs.google.com/spreadsheets/d/1CeNxt3T8Y0ktm8PrvfnbCtAkR1H2LCY4/export?format=csv"
