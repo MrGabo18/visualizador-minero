@@ -2,16 +2,13 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objs as go
 
-st.set_page_config(page_title="Visualizador Minero 3D desde Google Sheets", layout="wide")
-st.title("Visualizador Minero 3D cargado automáticamente desde Google Sheets")
+st.title("Visualizador Minero 3D desde GitHub")
 
-url_csv = "https://docs.google.com/spreadsheets/d/1CeNxt3T8Y0ktm8PrvfnbCtAkR1H2LCY4/export?format=csv&gid=0"
+url_raw = "https://raw.githubusercontent.com/MrGabo18/visualizador-minero/main/Datos.xlsx"
 
 try:
-    # Leer CSV directamente desde Google Sheets
-    df = pd.read_csv(url_csv)
+    df = pd.read_excel(url_raw)
 
-    # Convertir 'Cu' a numérico, ignorar errores
     df["Cu"] = pd.to_numeric(df["Cu"], errors='coerce')
     df = df.dropna(subset=["Cu"])
 
